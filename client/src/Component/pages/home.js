@@ -7,7 +7,11 @@ class Home extends Component {
         <img
           src="/img/background.svg"
           alt=""
-          style={{ marginTop: '-60px', height: 'auto', width: '100%' }}
+          style={{
+            marginTop: '-50px',
+            width: '100%',
+            height: `calc(100%-$74px)`
+          }}
         />
       </div>
     );
