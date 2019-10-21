@@ -26,12 +26,33 @@ const styles = theme => ({
     flexGrow: 1,
     padding: '0px',
     marginBottom: '-30px',
-    maxWidth: '100px'
+    maxWidth: '100px',
+    [theme.breakpoints.down(960)]: {
+      maxWidth: '90px'
+    },
+    [theme.breakpoints.down(600)]: {
+      maxWidth: '70px'
+    },
+    [theme.breakpoints.down(400)]: {
+      maxWidth: '50px'
+    }
   },
   buttonGroup: {
     flexGrow: 2,
     display: 'flex',
     justifyContent: 'space-evenly'
+  },
+  logoPNG: {
+    maxWidth: '100px',
+    [theme.breakpoints.down(960)]: {
+      maxWidth: '90px'
+    },
+    [theme.breakpoints.down(600)]: {
+      maxWidth: '70px'
+    },
+    [theme.breakpoints.down(400)]: {
+      maxWidth: '60px'
+    }
   },
 
   toolbarMargin: theme.mixins.toolbar
@@ -57,7 +78,7 @@ class Menu extends Component {
           <AppBar position="sticky" color="inherit">
             <Toolbar className={classes.container}>
               <div className={classes.logo}>
-                <img src={logo} alt="logo" style={{ maxWidth: '100px' }} />
+                <img src={logo} className={classes.logoPNG} alt="logo" />
               </div>
 
               <div className={classes.buttonGroup}>

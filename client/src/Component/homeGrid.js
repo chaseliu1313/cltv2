@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import HomePanel from './homePanel';
 import { theme } from '../theme';
 import Avatar from '@material-ui/core/Avatar';
+import Slide from '@material-ui/core/Slide';
 
 const cxTheme = theme;
 
@@ -43,6 +44,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function HomeGrid(props) {
   const classes = useStyles(cxTheme);
+  const [mounted, toggleMount] = useState(false);
+
+  useEffect(() => {
+    toggleMount(true);
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -51,11 +57,13 @@ export default function HomeGrid(props) {
           <HomePanel />
         </Grid>
         <Grid item className={classes.right} xs={12} md={3} lg={3}>
-          <Avatar
-            alt="Profile Pics"
-            src="../img/home_photo1.png"
-            className={classes.avatar}
-          />
+          <Slide direction="left" in={mounted} mountOnEnter unmountOnExit>
+            <Avatar
+              alt="Profile Pics"
+              src="../img/home_photo1.png"
+              className={classes.avatar}
+            />
+          </Slide>
         </Grid>
       </Grid>
     </div>
