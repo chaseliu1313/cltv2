@@ -5,6 +5,7 @@ import HomePanel from './homePanel';
 import { theme } from '../theme';
 import Avatar from '@material-ui/core/Avatar';
 import Slide from '@material-ui/core/Slide';
+import Glow from '../img/glow.svg';
 
 const cxTheme = theme;
 
@@ -38,7 +39,15 @@ const useStyles = makeStyles(theme => ({
       margin: 'auto'
     }
   },
-  right: { display: 'flex', alignItems: 'center' },
+  right: {
+    display: 'flex',
+    alignItems: 'center',
+    [theme.breakpoints.up(960)]: {
+      backgroundImage: `url(${Glow})`,
+      justifyContent: 'flex-end',
+      backgroundSize: ' cover'
+    }
+  },
   left: { display: 'flex' }
 }));
 

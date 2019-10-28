@@ -44,27 +44,35 @@ const useStyles = makeStyles(theme => ({
       fontSize: '30px'
     }
   },
-  btnContainer: {},
+  btnContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end'
+  },
   image: {
     display: 'block',
-    height: 290,
-    width: 290,
+    height: 230,
+    width: 230,
     marginLeft: 'auto',
     marginRight: 'auto',
+    borderRadius: '25%',
+    marginTop: 20,
     [theme.breakpoints.down(960)]: {
       height: 150,
       width: 150,
-      margin: 'auto'
+      margin: 'auto',
+      marginTop: 14
     },
     [theme.breakpoints.down(600)]: {
       height: 150,
       width: 150,
-      marginLeft: 20
+      marginLeft: 20,
+      marginTop: 14
     },
     [theme.breakpoints.down(400)]: {
       height: 40,
       width: 40,
-      marginLeft: 80
+      marginLeft: 80,
+      backgroundColor: 'transparent !important'
     }
   },
   focusVisible: {},
@@ -83,7 +91,11 @@ const useStyles = makeStyles(theme => ({
   imageTitle: {
     position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) +
-      6}px`
+      6}px`,
+    color: '#223C5F',
+    [theme.breakpoints.down(400)]: {
+      color: 'white'
+    }
   }
 }));
 
@@ -104,7 +116,11 @@ export default function HomePanel() {
       </Grow>
       <Grid container>
         <Grid item md={6} sm={6} lg={6} xs={6} className={classes.btnContainer}>
-          <ButtonBase focusRipple className={classes.image}>
+          <ButtonBase
+            focusRipple
+            className={classes.image}
+            style={{ backgroundColor: 'rgba(194, 217, 148, .9)' }}
+          >
             <span className={classes.imgSrc}>
               <span className={classes.imageButton}>
                 <Typography
@@ -120,7 +136,11 @@ export default function HomePanel() {
           </ButtonBase>
         </Grid>
         <Grid item md={6} sm={6} lg={6} xs={6}>
-          <ButtonBase focusRipple className={classes.image}>
+          <ButtonBase
+            focusRipple
+            className={classes.image}
+            style={{ backgroundColor: 'rgba(253, 245, 23, 0.8)' }}
+          >
             <span className={classes.imgSrc}>
               <span className={classes.imageButton}>
                 <Typography
