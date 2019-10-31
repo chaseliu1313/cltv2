@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_1);
+      }
+
+      .cls-2 {
+        opacity: 0.86;
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        filter: url(#Rectangle_1);
+      }
+
+      .cls-4 {
+        filter: url(#Polygon_1);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4fa9a9"/>
+      <stop offset="1" stop-color="#1f3459">
+      <animate  attributeName="stop-color" dur="30000ms" values="white;purple; black;#1f3459;#4fa9a9" repeatCount="indefinite" />
+      
+      </stop>
+     
+      
+    </linearGradient>
+    <filter id="Polygon_1" x="-5.744" y="-179.879" width="3994.488" height="1687.758" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#484848" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+     
+    </filter>
+    <filter id="Rectangle_1" x="-33.824" y="886.368" width="1979.647" height="1652.509" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#484848" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" class="cls-1">
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <path id="Polygon_1-2" data-name="Polygon 1" class="cls-2" d="M1927.5,0,3855,1080H0Z" transform="translate(169.21 -173.88) rotate(9)"/>
+    </g>
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <rect id="Rectangle_1-2" data-name="Rectangle 1" class="cls-2" width="1934" height="1601" transform="matrix(1, 0.02, -0.02, 1, 0.12, 892.37)"/>
+    </g>
+    <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" width="1971" height="1062" transform="translate(0.131 892.793) rotate(-13)"/>
+  </g>
+</svg>

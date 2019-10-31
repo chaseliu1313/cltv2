@@ -53,9 +53,9 @@ const styles = theme => ({
     [theme.breakpoints.down(400)]: {
       maxWidth: '60px'
     }
-  },
+  }
 
-  toolbarMargin: theme.mixins.toolbar
+  //toolbarMargin: theme.mixins.toolbar
 });
 
 class Menu extends Component {

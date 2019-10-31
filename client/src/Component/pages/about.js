@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 
     backgroundImage: `url(${Background3})`,
     backgroundSize: ' cover',
-    marginTop: '-62px',
+    // marginTop: '-62px',
     alignItems: 'center',
 
     [theme.breakpoints.down(960)]: {
