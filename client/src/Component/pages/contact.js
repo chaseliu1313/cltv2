@@ -1,11 +1,5 @@
-import React, { Component } from 'react';
-import {
-  fade,
-  ThemeProvider,
-  withStyles,
-  makeStyles,
-  createMuiTheme
-} from '@material-ui/styles';
+import React, { useState } from 'react';
+import { ThemeProvider, withStyles, makeStyles } from '@material-ui/styles';
 import contactBg from '../../img/contactBg.svg';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -15,9 +9,10 @@ import { theme } from '../../theme';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import SendIcon from '@material-ui/icons/Send';
-import github from '../../img/github-circle.svg';
+
 import SvgIcon from '@material-ui/core/SvgIcon';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { inputValid } from '../../middleware/index';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -74,7 +69,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     flexWrap: 'wrap'
-  }
+  },
+  input: {}
 }));
 
 const ValidationTextField = withStyles({
@@ -96,6 +92,27 @@ const ValidationTextField = withStyles({
 
 export default function Contact() {
   const classes = useStyles(theme);
+
+  const [input, setInput] = useState({
+    name: 'name',
+    email: 'xxx@xxx.com',
+    message: 'Leave your message here :)'
+  });
+
+  const handleInput = value => event => {
+    setInput({ ...input, [value]: event.target.value });
+  };
+  const handleSubmit = () => {
+    console.log(inputValid(input));
+  };
+
+  const clearForm = () => {
+    setInput({
+      name: ' ',
+      email: 'xxx@xxx.com',
+      message: 'Leave your message here :)'
+    });
+  };
 
   return (
     <div className={classes.root}>
@@ -127,33 +144,42 @@ export default function Contact() {
           <ThemeProvider theme={theme}>
             <FormControl className={classes.form}>
               <ValidationTextField
-                className={classes.margin}
+                className={classes.input}
                 label="Name"
                 required
                 variant="outlined"
-                defaultValue="Please enter your name"
+                value={input.name}
+                onChange={handleInput('name')}
                 id="validation-outlined-input"
               />
               <ValidationTextField
-                className={classes.margin}
+                className={classes.input}
                 label="email"
                 required
                 variant="outlined"
-                defaultValue="xxx@xxx.com"
+                value={input.email}
+                onChange={handleInput('email')}
                 id="validation-outlined-input"
                 type="email"
               />
               <ValidationTextField
-                className={classes.margin}
+                className={classes.input}
                 label="message"
                 required
                 variant="outlined"
-                defaultValue="Leave the message :)"
+                value={input.message}
+                onChange={handleInput('message')}
+                placeholder="leave your message here :)"
                 id="validation-outlined-input"
                 multiline
                 rows="5"
               />
-              <Fab variant="extended" color="primary" aria-label="add">
+              <Fab
+                variant="extended"
+                color="primary"
+                aria-label="add"
+                onClick={handleSubmit}
+              >
                 <SendIcon />
                 Extended
               </Fab>

@@ -5,11 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Grow from '@material-ui/core/Grow';
 
-const btnImg = [
-  { url: '../img/card_left.png', title: 'Sound Enginner', width: '300' },
-  { url: '../img/card_right.png', title: 'Full-stack Developer', width: '300' }
-];
-
 const img1 = {
   url: '../img/cardLeft.png',
   title: 'Sound Enginner',
