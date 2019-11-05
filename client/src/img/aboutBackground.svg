@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="2097" viewBox="0 0 1920 2097">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_1);
+      }
+
+      .cls-2 {
+        opacity: 0.86;
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4fa9a9"/>
+      <stop offset="1" stop-color="#1f3459"/>
+      <stop offset="1" stop-color="gray"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.702"/>
+    </linearGradient>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="1920" height="2097"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" class="cls-1">
+    <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" width="1920" height="2097" transform="translate(0.322 0.495)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-3" width="133" height="549" rx="22" transform="translate(960 237)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-3" width="92" height="378" rx="22" transform="translate(840 1877)"/>
+    <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-3" width="148" height="609" rx="22" transform="translate(902 761)"/>
+    <rect id="Rectangle_7" data-name="Rectangle 7" class="cls-3" width="148" height="609" rx="22" transform="translate(1018 1488)"/>
+    <rect id="Rectangle_8" data-name="Rectangle 8" class="cls-3" width="122" height="504" rx="22" transform="translate(1325 1003)"/>
+    <rect id="Rectangle_9" data-name="Rectangle 9" class="cls-3" width="59" height="242" rx="22" transform="translate(525 1128)"/>
+    <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-3" width="138" height="566" rx="22" transform="translate(673 1249)"/>
+    <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-3" width="138" height="568" rx="22" transform="translate(1350 481)"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-3" width="133" height="548" rx="22" transform="translate(606 775)"/>
+    <rect id="Rectangle_13" data-name="Rectangle 13" class="cls-3" width="111" height="456" rx="22" transform="translate(1166 535)"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" class="cls-3" width="105" height="432" rx="22" transform="translate(686 617)"/>
+    <rect id="Rectangle_15" data-name="Rectangle 15" class="cls-3" width="148" height="609" rx="22" transform="translate(1238 177)"/>
+    <rect id="Rectangle_16" data-name="Rectangle 16" class="cls-3" width="148" height="609" rx="22" transform="translate(572 196)"/>
+    <rect id="Rectangle_17" data-name="Rectangle 17" class="cls-3" width="148" height="609" rx="22" transform="translate(840 -128)"/>
+    <rect id="Rectangle_18" data-name="Rectangle 18" class="cls-3" width="74" height="305" rx="22" transform="translate(923 1609)"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" class="cls-3" width="109" height="447" rx="22" transform="translate(606 1679)"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" class="cls-3" width="122" height="504" rx="22" transform="translate(1386 1662)"/>
+    <rect id="Rectangle_21" data-name="Rectangle 21" class="cls-3" width="38" height="156" rx="19" transform="translate(1331 1523)"/>
+  </g>
+</svg>
