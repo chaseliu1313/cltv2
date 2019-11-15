@@ -1,60 +1,64 @@
-import React, { useEffect, useState } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Grow from '@material-ui/core/Grow';
+import React, { useEffect, useState } from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Grow from "@material-ui/core/Grow";
+import Zoom from "@material-ui/core/Zoom";
+import { Link } from "react-router-dom";
 
 const img1 = {
-  url: '../img/cardLeft.png',
-  title: 'Sound Enginner',
-  width: '300'
+  url: "../img/cardLeft.png",
+  title: "Sound Enginner",
+  width: "300"
 };
 const img2 = {
-  url: '../img/cardRight.png',
-  title: 'Full-stack Developer',
-  width: '300'
+  url: "../img/cardRight.png",
+  title: "Full-stack Developer",
+  width: "300"
 };
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
     [theme.breakpoints.down(400)]: {
-      justifyContent: 'space-between'
+      justifyContent: "space-between"
     }
   },
   name: {
-    fontSize: '120px',
-    fontWeight: 'bold',
-    textShadow: '1px 3px 6px #000000',
-    color: '#FFFFFF',
-    [theme.breakpoints.down(960)]: { fontSize: '80px' },
+    fontSize: "120px",
+    fontWeight: "bold",
+    textShadow: "1px 3px 6px #000000",
+    color: "#FFFFFF",
+    marginBottom: 60,
+    [theme.breakpoints.down(960)]: { fontSize: "80px" },
     [theme.breakpoints.down(600)]: {
-      fontSize: '60px'
+      fontSize: "60px"
     },
     [theme.breakpoints.down(400)]: {
-      fontSize: '30px'
+      fontSize: "30px",
+      marginBottom: 10
     }
   },
   btnContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end'
+    display: "flex",
+    justifyContent: "flex-end"
   },
   image: {
-    display: 'block',
+    display: "block",
     height: 230,
     width: 230,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderRadius: '25%',
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: "25%",
     marginTop: 20,
     [theme.breakpoints.down(960)]: {
       height: 150,
       width: 150,
-      margin: 'auto',
+      margin: "auto",
       marginTop: 14
     },
     [theme.breakpoints.down(600)]: {
@@ -67,29 +71,29 @@ const useStyles = makeStyles(theme => ({
       height: 40,
       width: 40,
       marginLeft: 80,
-      backgroundColor: 'transparent !important'
+      backgroundColor: "transparent !important"
     }
   },
   focusVisible: {},
   imageButton: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     color: theme.palette.common.white
   },
   imageSrc: {},
   imageTitle: {
-    position: 'relative',
+    position: "relative",
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) +
       6}px`,
-    color: '#223C5F',
+    color: "#223C5F",
     [theme.breakpoints.down(400)]: {
-      color: 'white'
+      color: "white"
     }
   }
 }));
@@ -109,48 +113,61 @@ export default function HomePanel() {
           Hi, I am Chase Liu
         </Typography>
       </Grow>
-      <Grid container>
-        <Grid item md={6} sm={6} lg={6} xs={6} className={classes.btnContainer}>
-          <ButtonBase
-            focusRipple
-            className={classes.image}
-            style={{ backgroundColor: 'rgba(194, 217, 148, .9)' }}
+      <Zoom in={mounted} style={{ transitionDelay: mounted ? "300ms" : "0ms" }}>
+        <Grid container>
+          <Grid
+            item
+            md={6}
+            sm={6}
+            lg={6}
+            xs={6}
+            className={classes.btnContainer}
           >
-            <span className={classes.imgSrc}>
-              <span className={classes.imageButton}>
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  className={classes.imageTitle}
-                >
-                  {img1.title}
-                </Typography>
+            <ButtonBase
+              focusRipple
+              className={classes.image}
+              style={{ backgroundColor: "rgba(194, 217, 148, .9)" }}
+              component={Link}
+              to="/about"
+            >
+              <span className={classes.imgSrc}>
+                <span className={classes.imageButton}>
+                  <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                  >
+                    {img1.title}
+                  </Typography>
+                </span>
               </span>
-            </span>
-          </ButtonBase>
-        </Grid>
-        <Grid item md={6} sm={6} lg={6} xs={6}>
-          <ButtonBase
-            focusRipple
-            className={classes.image}
-            style={{ backgroundColor: 'rgba(253, 245, 23, 0.8)' }}
-          >
-            <span className={classes.imgSrc}>
-              <span className={classes.imageButton}>
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  className={classes.imageTitle}
-                >
-                  {img2.title}
-                </Typography>
+            </ButtonBase>
+          </Grid>
+          <Grid item md={6} sm={6} lg={6} xs={6}>
+            <ButtonBase
+              focusRipple
+              className={classes.image}
+              style={{ backgroundColor: "rgba(253, 245, 23, 0.8)" }}
+              component={Link}
+              to="/about"
+            >
+              <span className={classes.imgSrc}>
+                <span className={classes.imageButton}>
+                  <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                  >
+                    {img2.title}
+                  </Typography>
+                </span>
               </span>
-            </span>
-          </ButtonBase>
+            </ButtonBase>
+          </Grid>
         </Grid>
-      </Grid>
+      </Zoom>
     </div>
   );
 }

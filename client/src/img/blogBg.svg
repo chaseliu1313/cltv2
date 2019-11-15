@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2100" height="1023" viewBox="0 0 2100 1023">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #ee8787;
+      }
+
+      .cls-4 {
+        fill: #e1d689;
+      }
+
+      .cls-5 {
+        fill: #72beaf;
+      }
+
+      .cls-6 {
+        fill: rgba(88,88,88,0.4);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" y1="1" x2="0.113" y2="0.136" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#001774"/>
+      <stop offset="1" stop-color="#4871b6"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(90 90)">
+    <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" width="1920" height="843"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-2" width="1546" height="257" rx="35" transform="translate(185 149)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-2" width="1546" height="257" rx="35" transform="translate(187 480)"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-3" cx="34.5" cy="34.5" r="34.5" transform="translate(67 186)"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-4" cx="34.5" cy="34.5" r="34.5" transform="translate(67 301)"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" class="cls-5" cx="34.5" cy="34.5" r="34.5" transform="translate(67 416)"/>
+    <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-6" width="673" height="35" rx="8" transform="translate(256 167)"/>
+    <rect id="Rectangle_7" data-name="Rectangle 7" class="cls-6" width="1321" height="35" rx="8" transform="translate(256 230)"/>
+    <rect id="Rectangle_8" data-name="Rectangle 8" class="cls-6" width="1321" height="35" rx="8" transform="translate(256 293)"/>
+    <rect id="Rectangle_9" data-name="Rectangle 9" class="cls-6" width="300" height="35" rx="8" transform="translate(256 356)"/>
+    <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-6" width="673" height="35" rx="8" transform="translate(896 497)"/>
+    <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-6" width="1321" height="35" rx="8" transform="translate(248 560)"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-6" width="1321" height="35" rx="8" transform="translate(248 623)"/>
+    <rect id="Rectangle_13" data-name="Rectangle 13" class="cls-6" width="300" height="35" rx="8" transform="translate(1269 686)"/>
+  </g>
+</svg>
