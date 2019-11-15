@@ -1,10 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import {
-  ThemeProvider,
-  withStyles,
-  makeStyles,
-  mergeClasses
-} from '@material-ui/styles';
+import { ThemeProvider, withStyles, makeStyles } from '@material-ui/styles';
 import Fade from '@material-ui/core/Fade';
 import contactBg from '../../img/contactBg.svg';
 import Paper from '@material-ui/core/Paper';
@@ -123,6 +118,7 @@ export default function Contact() {
         .then(res => {
           setStatus(res.data.status);
           setOpen(true);
+          clearForm();
         })
         .catch(error => {
           console.log(error);
@@ -146,14 +142,15 @@ export default function Contact() {
   };
 
   return (
-    <Fade in={load}>
-      <Fragment>
+    <Fragment>
+      <Fade in={load}>
         <div className={classes.root}>
           <Paper className={classes.container}>
             <Grid item md={6} xs={3} className={classes.left}>
               <Typography variant="h1" className={classes.title}>
                 Drop me a message
               </Typography>
+
               <div className={classes.socialBtnGroup}>
                 <Fab
                   color="secondary"
@@ -175,6 +172,7 @@ export default function Contact() {
                 </Fab>
               </div>
             </Grid>
+
             <Grid item md={6} xs={9}>
               <ThemeProvider theme={theme}>
                 <FormControl className={classes.form}>
@@ -236,14 +234,14 @@ export default function Contact() {
             </Grid>
           </Paper>
         </div>
+      </Fade>
 
-        <Feedback
-          open={open}
-          onClose={handleDialog}
-          messageTitle="Message Sent"
-          messageStatus={status}
-        />
-      </Fragment>
-    </Fade>
+      <Feedback
+        open={open}
+        onClose={handleDialog}
+        messageTitle="Message Sent"
+        messageStatus={status}
+      />
+    </Fragment>
   );
 }

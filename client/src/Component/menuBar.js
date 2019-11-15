@@ -13,6 +13,7 @@ import Blog from './pages/blog';
 import Home from './pages/home';
 import { compose } from 'recompose';
 import MenuButton from './menuButton';
+import NotFound from './pages/notFound';
 
 const styles = theme => ({
   root: {
@@ -113,6 +114,7 @@ class Menu extends Component {
           <Route path="/about" render={() => <About />} />
           <Route path="/contact" render={() => <Contact />} />
           <Route path="/blog" render={() => <Blog />} />
+          <Route component={NotFound} />
         </Switch>
       </Fragment>
     );
@@ -123,7 +125,4 @@ Menu.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default compose(
-  withRouter,
-  withStyles(styles)
-)(Menu);
+export default compose(withRouter, withStyles(styles))(Menu);
