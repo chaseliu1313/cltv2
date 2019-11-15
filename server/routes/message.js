@@ -15,15 +15,14 @@ router.post('/', (req, res, next) => {
     values,
     (q_err, q_res) => {
       if (q_err) {
-        res.json({
+        return res.json({
           error: q_err.detail,
           status: false,
           message: 'Hmm..Some thing went wrong, please double check your input.'
         });
-        return next(q_err);
       }
-      console.log(q_res);
-      res.json({ status: true, message: 'Thank you for your message.' });
+
+      return res.json({ status: true, message: 'Thank you for your message.' });
     }
   );
 });
