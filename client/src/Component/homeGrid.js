@@ -12,6 +12,7 @@ const cxTheme = theme;
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    height: '90vh',
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.down(960)]: {
@@ -42,13 +43,25 @@ const useStyles = makeStyles(theme => ({
   right: {
     display: 'flex',
     alignItems: 'center',
+    overflow: 'hidden',
+    zIndex: 2,
+    height: '100%',
     [theme.breakpoints.up(960)]: {
       backgroundImage: `url(${Glow})`,
       justifyContent: 'flex-end',
-      backgroundSize: ' cover'
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center'
+    },
+    [theme.breakpoints.down(600)]: {
+      display: 'none'
     }
   },
-  left: { display: 'flex' }
+  left: {
+    display: 'flex',
+    zIndex: 3,
+    height: '100%'
+  }
 }));
 
 export default function HomeGrid(props) {
@@ -61,19 +74,17 @@ export default function HomeGrid(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spaceing={3} style={{ height: '70%' }}>
-        <Grid item className={classes.left} xs={12} md={9} lg={9}>
-          <HomePanel />
-        </Grid>
-        <Grid item className={classes.right} xs={12} md={3} lg={3}>
-          <Slide direction="left" in={mounted} mountOnEnter unmountOnExit>
-            <Avatar
-              alt="Profile Pics"
-              src="../img/home_photo1.png"
-              className={classes.avatar}
-            />
-          </Slide>
-        </Grid>
+      <Grid item className={classes.left} xs={12} md={9} lg={9}>
+        <HomePanel />
+      </Grid>
+      <Grid item className={classes.right} xs={12} md={3} lg={3}>
+        <Slide direction="left" in={mounted} mountOnEnter unmountOnExit>
+          <Avatar
+            alt="Profile Pics"
+            src="../img/home_photo1.png"
+            className={classes.avatar}
+          />
+        </Slide>
       </Grid>
     </div>
   );

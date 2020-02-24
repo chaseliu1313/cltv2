@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/styles';
+import React, { Fragment } from 'react';
+import { makeStyles } from '@material-ui/styles';
 import HomeGrid from '../homeGrid';
 import Wave from 'react-wavify';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     width: '100%',
-    height: '95vh',
-    backgroundImage: 'linear-gradient(-90deg, #1F3459, #4FA9A9)',
-    marginTop: '-62px',
-    position: 'relative'
+
+    backgroundImage: 'linear-gradient(-90deg, #1F3459, #4FA9A9)'
   },
   svg: {
-    position: 'absolute',
-    bottom: -5,
+    position: 'fixed',
+    bottom: 0,
     width: '100%',
     height: 'auto',
     zIndex: 1,
-    padding: 0
+    padding: 0,
+    marginBottom: -10
   },
   homeGrid: {
     display: 'flex',
@@ -27,16 +26,16 @@ const styles = theme => ({
     marginTop: 45,
     marginLeft: 10
   }
-});
+}));
 
-class Home extends Component {
-  render() {
-    const { classes } = this.props;
-    return (
+export default function Home() {
+  const classes = useStyles();
+
+  return (
+    <Fragment>
       <div className={classes.root}>
-        <div className={classes.homeGrid}>
-          <HomeGrid />
-        </div>
+        <HomeGrid />
+
         <Wave
           fill="#FFFFFF"
           paused={false}
@@ -44,8 +43,9 @@ class Home extends Component {
           options={{ height: 25, amplitude: 50, speed: 0.15, points: 6 }}
         />
       </div>
-    );
-  }
+      <p className="copyright">
+        designed & made by Chase Liu, all rights reserved©2019. Toronto Canada
+      </p>
+    </Fragment>
+  );
 }
-
-export default withStyles(styles)(Home);

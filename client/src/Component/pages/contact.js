@@ -95,7 +95,7 @@ export default function Contact() {
   const classes = useStyles(theme);
 
   const [input, setInput] = useState({
-    name: 'name',
+    name: 'Name',
     email: 'xxx@xxx.com',
     message: 'Leave your message here :)'
   });
@@ -108,9 +108,17 @@ export default function Contact() {
     setLoad(true);
   }, []);
 
+  //update input into hooks with key value pair
   const handleInput = value => event => {
     setInput({ ...input, [value]: event.target.value });
   };
+
+  //onFocus function
+  const handleFocus = value => event => {
+    setInput({ ...input, [value]: '' });
+  };
+
+  //submit form
   const handleSubmit = () => {
     if (inputValid(input)) {
       axios
@@ -120,8 +128,10 @@ export default function Contact() {
           setOpen(true);
           clearForm();
         })
-        .catch(error => {
-          console.log(error);
+        .catch(err => {
+          console.log(err);
+          setStatus(false);
+          setOpen(true);
         });
     } else {
       setDisplay('block');
@@ -130,13 +140,14 @@ export default function Contact() {
 
   const clearForm = () => {
     setInput({
-      name: ' ',
+      name: 'Name',
       email: 'xxx@xxx.com',
       message: 'Leave your message here :)'
     });
     setDisplay('none');
   };
 
+  //to display the customized alert box
   const handleDialog = () => {
     setOpen(false);
   };
@@ -195,7 +206,7 @@ export default function Contact() {
                     variant="outlined"
                     value={input.name}
                     onChange={handleInput('name')}
-                    id="validation-outlined-input"
+                    onFocus={handleFocus('name')}
                   />
                   <ValidationTextField
                     className={classes.input}
@@ -204,7 +215,7 @@ export default function Contact() {
                     variant="outlined"
                     value={input.email}
                     onChange={handleInput('email')}
-                    id="validation-outlined-input"
+                    onFocus={handleFocus('email')}
                     type="email"
                   />
                   <ValidationTextField
@@ -214,8 +225,7 @@ export default function Contact() {
                     variant="outlined"
                     value={input.message}
                     onChange={handleInput('message')}
-                    placeholder="leave your message here :)"
-                    id="validation-outlined-input"
+                    onFocus={handleFocus('message')}
                     multiline
                     rows="5"
                   />

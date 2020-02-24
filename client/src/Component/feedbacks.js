@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Dialog from "@material-ui/core/Dialog";
-import Typography from "@material-ui/core/Typography";
-import BeenhereIcon from "@material-ui/icons/Beenhere";
-import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
-import { DialogContent, DialogActions } from "@material-ui/core";
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import Typography from '@material-ui/core/Typography';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import { DialogContent, DialogActions } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  message: { fontSize: "2vw", color: "#223C5F" }
+  message: { fontSize: '2vw', color: '#223C5F' }
 });
 
 export default function Feedback(props) {
@@ -32,12 +32,12 @@ export default function Feedback(props) {
       <DialogContent>
         {messageStatus ? (
           <Typography className={classes.message}>
-            <BeenhereIcon style={{ marginLeft: 5, fontSize: "2vw" }} />
+            <BeenhereIcon style={{ marginLeft: 5, fontSize: '2vw' }} />
             Thank you for your message, I will contact you soon!
           </Typography>
         ) : (
           <Typography className={classes.message}>
-            <ErrorOutlineIcon style={{ marginLeft: 5, fontSize: "2vw" }} />
+            <ErrorOutlineIcon style={{ marginLeft: 5, fontSize: '2vw' }} />
             Hmm..Something is wrong, doube check your input?
           </Typography>
         )}

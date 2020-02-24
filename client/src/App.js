@@ -10,6 +10,7 @@ const scrollBarWidth = windowWidth - documentWidth;
 
 const useStyles = makeStyles(theme => ({
   App: {
+    width: '100%',
     [theme.breakpoints.up(960)]: {
       overflow: 'hidden',
       WebkitOverflowScrolling: 'touch',

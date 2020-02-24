@@ -1,64 +1,58 @@
-import React, { useEffect, useState } from "react";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Grow from "@material-ui/core/Grow";
-import Zoom from "@material-ui/core/Zoom";
-import { Link } from "react-router-dom";
-
-const img1 = {
-  url: "../img/cardLeft.png",
-  title: "Sound Enginner",
-  width: "300"
-};
-const img2 = {
-  url: "../img/cardRight.png",
-  title: "Full-stack Developer",
-  width: "300"
-};
+import React, { useEffect, useState } from 'react';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import { useSpring, animated } from 'react-spring';
+import RadioPanel from './radioPanel';
+import DeveloperPanel from './developerPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
+    height: '80vh',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
     [theme.breakpoints.down(400)]: {
-      justifyContent: "space-between"
-    }
+      justifyContent: 'space-between'
+    },
+    zIndex: 2
   },
   name: {
-    fontSize: "120px",
-    fontWeight: "bold",
-    textShadow: "1px 3px 6px #000000",
-    color: "#FFFFFF",
-    marginBottom: 60,
-    [theme.breakpoints.down(960)]: { fontSize: "80px" },
+    fontSize: '100px',
+    fontWeight: 'bold',
+    textShadow: '1px 3px 6px #000000',
+    color: '#FFFFFF',
+    overflow: 'hidden',
+    zIndex: 1,
+    marginBottom: 20,
+    padding: 20,
+    [theme.breakpoints.up(1200)]: {
+      fontSize: '150px',
+      marginBottom: 5,
+      marginLeft: 100
+    },
+    [theme.breakpoints.down(960)]: { fontSize: '80px', marginBottom: 5 },
     [theme.breakpoints.down(600)]: {
-      fontSize: "60px"
+      fontSize: '60px',
+      marginBottom: 5
     },
     [theme.breakpoints.down(400)]: {
-      fontSize: "30px",
-      marginBottom: 10
+      fontSize: '30px',
+      marginBottom: 5
     }
   },
-  btnContainer: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
+  btnContainer: {},
   image: {
-    display: "block",
+    display: 'block',
     height: 230,
     width: 230,
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderRadius: "25%",
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: '25%',
     marginTop: 20,
     [theme.breakpoints.down(960)]: {
       height: 150,
       width: 150,
-      margin: "auto",
+      margin: 'auto',
       marginTop: 14
     },
     [theme.breakpoints.down(600)]: {
@@ -71,103 +65,117 @@ const useStyles = makeStyles(theme => ({
       height: 40,
       width: 40,
       marginLeft: 80,
-      backgroundColor: "transparent !important"
+      backgroundColor: 'transparent !important'
     }
   },
   focusVisible: {},
   imageButton: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     color: theme.palette.common.white
   },
   imageSrc: {},
   imageTitle: {
-    position: "relative",
+    position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) +
       6}px`,
-    color: "#223C5F",
+    color: '#223C5F',
     [theme.breakpoints.down(400)]: {
-      color: "white"
+      color: 'white'
     }
   }
 }));
 
 export default function HomePanel() {
   const classes = useStyles();
-  const [mounted, toggleMount] = useState(false);
+  const [module1Expanded, setExpand1] = useState(false);
+  const [module2Expanded, setExpand2] = useState(false);
+
+  //update width and height hooks
+
+  const [curHeight, setHeight] = useState(window.innerHeight);
+  const [curWidth, setWidth] = useState(window.innerWidth);
+  //update size function
+  const getSize = () => {
+    return {
+      height: window.innerHeight,
+      width: window.innerWidth
+    };
+  };
+  //react-spring styles
+  const styleM1 = useSpring({
+    width: module1Expanded ? curWidth : 0.15 * curHeight,
+    height: module1Expanded ? curHeight : 0.15 * curHeight,
+    zIndex: module1Expanded ? 3 : 2,
+    display: module2Expanded ? 'none' : 'flex',
+    backgroundColor: module1Expanded
+      ? 'rgba(242, 242, 242, 1)'
+      : 'rgba(194, 217, 148, 0.9)'
+  });
+
+  const styleM2 = useSpring({
+    width: module2Expanded ? curWidth : 0.15 * curHeight,
+    height: module2Expanded ? curHeight : 0.15 * curHeight,
+    zIndex: module2Expanded ? 3 : 2,
+    display: module1Expanded ? 'none' : 'flex',
+    backgroundColor: module2Expanded
+      ? 'rgba(242, 242, 242, 1)'
+      : 'rgba(253, 245, 23, 0.8)'
+  });
+
+  const nameStyle = {
+    display: module1Expanded || module2Expanded ? 'none' : 'block'
+  };
 
   useEffect(() => {
-    toggleMount(true);
-  }, []);
+    const resizeListner = () => {
+      setHeight(getSize().height);
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', resizeListner);
+    return () => window.removeEventListener('resize', resizeListner);
+  }, [curWidth, curHeight]);
 
   return (
-    <div className={classes.root}>
-      <Grow in={mounted}>
-        <Typography variant="h1" className={classes.name}>
-          Hi, I am Chase Liu
-        </Typography>
-      </Grow>
-      <Zoom in={mounted} style={{ transitionDelay: mounted ? "300ms" : "0ms" }}>
-        <Grid container>
-          <Grid
-            item
-            md={6}
-            sm={6}
-            lg={6}
-            xs={6}
-            className={classes.btnContainer}
+    <div className="homeContainer">
+      <Typography variant="h1" className={classes.name} style={nameStyle}>
+        Hi, I am Chase Liu
+      </Typography>
+      <div className="btnContainer">
+        <animated.div
+          className="epbtn"
+          onClick={() => setExpand1(!module1Expanded)}
+          style={styleM1}
+        >
+          <p
+            className="btnText"
+            style={{ display: module1Expanded ? 'none' : ' ' }}
           >
-            <ButtonBase
-              focusRipple
-              className={classes.image}
-              style={{ backgroundColor: "rgba(194, 217, 148, .9)" }}
-              component={Link}
-              to="/about"
-            >
-              <span className={classes.imgSrc}>
-                <span className={classes.imageButton}>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                  >
-                    {img1.title}
-                  </Typography>
-                </span>
-              </span>
-            </ButtonBase>
-          </Grid>
-          <Grid item md={6} sm={6} lg={6} xs={6}>
-            <ButtonBase
-              focusRipple
-              className={classes.image}
-              style={{ backgroundColor: "rgba(253, 245, 23, 0.8)" }}
-              component={Link}
-              to="/about"
-            >
-              <span className={classes.imgSrc}>
-                <span className={classes.imageButton}>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                  >
-                    {img2.title}
-                  </Typography>
-                </span>
-              </span>
-            </ButtonBase>
-          </Grid>
-        </Grid>
-      </Zoom>
+            Media Producer
+          </p>
+          <RadioPanel module1Expanded={module1Expanded} />
+        </animated.div>
+
+        <animated.div
+          className="devbtn"
+          onClick={() => setExpand2(!module2Expanded)}
+          style={styleM2}
+        >
+          <p
+            className="btnText"
+            style={{ display: module2Expanded ? 'none' : ' ' }}
+          >
+            Full Stack Developer
+          </p>
+          <DeveloperPanel module2Expanded={module2Expanded} />
+        </animated.div>
+      </div>
     </div>
   );
 }
